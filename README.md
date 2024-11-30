@@ -21,31 +21,37 @@ if [ "$resposta" == "yes" ]; then
     
     # Cria um arquivo de exemplo
     echo "# $repositorio" > README.md
+
+    # Solicita o link do repositório no GitHub (exemplo: https://github.com/wasgba/nome-do-repositorio.git)
+    echo "Por favor, informe o link do seu repositório no GitHub (exemplo: https://github.com/wasgba/$repositorio.git):"
+    read link_repositorio
     
-    # Adiciona o repositório remoto
-    git remote add origin git@github.com:wasgba/"$repositorio".git
+    # Adiciona o repositório remoto do GitHub
+    git remote add origin "$link_repositorio"
     
-    # Adiciona os arquivos e faz o primeiro commit
+    # Adiciona os arquivos ao repositório local
     git add .
+    
+    # Faz o primeiro commit
     git commit -m "Primeiro repositório criado com a automatização"
     
-    # Faz o push para o repositório no GitHub
+    # Envia para o GitHub
     git push -u origin main
-    
     echo "Repositório '$repositorio' foi configurado e enviado para o GitHub com sucesso!"
 else
     echo "Operação cancelada. O repositório não foi criado."
 fi
-Solicitação do nome do repositório: O script pede para o usuário digitar o nome do repositório que deseja criar.
+  
 
-Orientação para criar o repositório no GitHub: Ele instrui o usuário a ir até o GitHub e criar o repositório manualmente com o nome fornecido.
-
-Confirmar se o repositório foi criado: O script pergunta se o repositório foi criado no GitHub. Se o usuário digitar yes, ele prossegue com a criação do repositório local e o envio para o GitHub. Caso contrário, ele informa que a operação foi cancelada.
-
-Criação do repositório local e envio para o GitHub: Se o repositório foi criado, o script faz o seguinte:
-
-Cria a pasta do repositório localmente.
-Inicializa o repositório Git com git init.
-Cria um arquivo README.md com o nome do repositório.
-Adiciona o repositório remoto com a URL do GitHub.
-Faz o commit inicial e envia os arquivos para o GitHub com git push.
+<!-- manual de uso do script
+O script pede o nome do repositório.
+O script pergunta se o repositório foi criado no GitHub.
+Se o repositório foi criado, o script:
+Cria a pasta do projeto.
+Inicializa o repositório Git.
+Cria o arquivo README.md.
+Solicita o link do repositório GitHub.
+Adiciona o repositório remoto com o link fornecido.
+Faz o primeiro commit e envia os arquivos para o GitHub.
+Se o repositório não foi criado, o script cancela a operação.
+-->
