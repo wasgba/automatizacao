@@ -55,3 +55,4 @@ Adiciona o repositório remoto com o link fornecido.
 Faz o primeiro commit e envia os arquivos para o GitHub.
 Se o repositório não foi criado, o script cancela a operação.
 -->
+# bom dia 
